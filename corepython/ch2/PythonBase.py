@@ -87,12 +87,33 @@ class FooClass(object):
         print '属性name的值为', self.name
         print '类的名称为', self.__class__.__name__
 
+def fun5():
+    '''
+    赋值
+    '''
+
+    # 连续赋值
+    x = y = z = 1
+    print "x = %d, y = %d, z = %d" % (x, y, z)
+
+    # 多元赋值
+    x, y, z = 'a', 'b', 'c' # 标准方式应该加上小括号，说明是对一个元组进行赋值
+    print "x = %s, y = %s, z = %s" %(x, y, z)
+
+    # 变量值交换
+    (a, b) = 1, 2
+    print "a = %d, b = %d" %(a, b)
+    (a, b) = (b, a)
+    print "a = %d, b = %d" %(a, b)
+
+
 
 if __name__ == '__main__':
-    print fun1.__doc__
+    # print fun1.__doc__
     # fun1()
     # fun2()
     # fun3()
     # fun4(False)
-    fooClass = FooClass('lisi')
-    fooClass.showName()
+    # fooClass = FooClass('lisi')
+    # fooClass.showName()
+    fun5()
