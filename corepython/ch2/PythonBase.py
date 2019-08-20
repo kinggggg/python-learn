@@ -1,6 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*
 
+import MyModule
+# from MyModule import Module1
+
 def fun1():
     '''
     Python基础语法学习
@@ -69,7 +72,13 @@ class FooClass(object):
     我使用Python定义的第一个类
     '''
 
+    # 普通成员变量
     version = 0.1
+    # 单个下划线开始的为私有成员变量
+    __version = 0.2
+    # 以双下划线开始和结束的属性和方法为Python中已经预先定义的系统属性和方法，
+    # 都有特殊的含义，用户在定义时最好不要这样定义
+    # 例如__init__
 
     def __init__(self, name = "zhangsan"):
         '''
@@ -86,6 +95,12 @@ class FooClass(object):
 
         print '属性name的值为', self.name
         print '类的名称为', self.__class__.__name__
+
+class SubClass(FooClass):
+    '''
+    定义一个子类，继承父类FooClass
+    '''
+
 
 def fun5():
     '''
@@ -106,6 +121,10 @@ def fun5():
     (a, b) = (b, a)
     print "a = %d, b = %d" %(a, b)
 
+    # 约定
+    # _XXX_    系统定义名字
+    # _XXX    类中定义的私有成员变量
+
 
 
 if __name__ == '__main__':
@@ -114,6 +133,13 @@ if __name__ == '__main__':
     # fun2()
     # fun3()
     # fun4(False)
-    # fooClass = FooClass('lisi')
-    # fooClass.showName()
+    fooClass = FooClass('lisi')
+    fooClass.showName()
+    fooClass.version
+
+    subClass = SubClass(fooClass)
+
     fun5()
+
+    module1 = MyModule.Module1()
+    MyModule.fun1()
